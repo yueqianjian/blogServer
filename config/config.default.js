@@ -7,7 +7,7 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1527163444413_2216';
 
   // add your config here
-  config.middleware = [];
+  config.middleware = [ 'cors' ];
 
   return config;
 };
