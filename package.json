@@ -6,7 +6,8 @@
   "dependencies": {
     "egg": "^2.2.1",
     "egg-scripts": "^2.5.0",
-    "kcors": "^2.2.1"
+    "kcors": "^2.2.1",
+    "mongoose": "^5.1.2"
   },
   "devDependencies": {
     "autod": "^3.0.1",
