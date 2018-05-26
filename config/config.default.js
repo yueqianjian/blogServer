@@ -9,5 +9,10 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [ 'cors' ];
 
+  config.mongoose = {
+    url: 'mongodb://blog:blog@localhost:27017/blog',
+    options: {},
+  };
+
   return config;
 };
