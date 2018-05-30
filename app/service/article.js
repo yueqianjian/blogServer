@@ -7,18 +7,18 @@ class ArticleService extends Service {
     }
 
     async create(post) {
-        this.ctx.model.Article.create(post);
+        return this.ctx.model.Article.create(post);
     }
 
     async findById(id) {
         return this.ctx.model.Article.findById(id).exec();
     }
 
-    async findAndUpdate(id, post) {
+    async update(id, post) {
         this.ctx.model.Article.findOneAndUpdate({ _id: id }, post).exec();
     }
 
-    async findAndRemove(id) {
+    async remove(id) {
         this.ctx.model.Article.remove({ _id: id }, function (err) {
             console.log(err);
         });
