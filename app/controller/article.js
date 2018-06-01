@@ -12,12 +12,12 @@ class ArticleController extends Controller {
         let articleContent = await service.articleContent.create({
             content
         })
-        let data = await service.article.create({
+        await service.article.create({
             title,
             info,
             content: articleContent._id
         });
-        ctx.body = data
+        ctx.body = true
     }
 
     async findById() {
@@ -31,7 +31,7 @@ class ArticleController extends Controller {
         const { ctx, service } = this
         const { id } = ctx.request.body
         let data = await service.articleContent.findById(id);
-        ctx.body = data
+        ctx.body = data.content
     }
 
     async remove() {
@@ -43,8 +43,9 @@ class ArticleController extends Controller {
 
     async update() {
         const { ctx, service } = this
-        const { id, data } = ctx.request.body
-        await service.article.update(id, data);
+        const { id, title, info, content } = ctx.request.body
+        let contentID = await service.article.update(id, { title, info });
+        await service.articleContent.update(contentID.content, { content });
         ctx.body = true
     }
 }

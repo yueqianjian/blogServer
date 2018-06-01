@@ -15,7 +15,7 @@ class ArticleContentService extends Service {
     }
 
     async update(id, post) {
-        this.ctx.model.ArticleContent.findOneAndUpdate({ _id: id }, post).exec();
+        return this.ctx.model.ArticleContent.findOneAndUpdate({ _id: id }, post).exec();
     }
 
     async remove(id) {
